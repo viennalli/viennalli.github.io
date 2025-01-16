@@ -1,0 +1,362 @@
+html {
+  height: 100%;
+  width: 100%;
+}
+/* Navbar styling */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    padding: 10px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition: background-color 0.3s, color 0.3s; /* Smooth transitions */
+
+}
+
+.menu {
+  position: relative;
+}
+
+/* Nav list styling */
+.nav-list {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+    margin-left: auto; /* Align tabs to the right */
+}
+
+/* Nav links styling */
+.nav-list li a {
+    text-decoration: none;
+    color: var(--nav-color, black); /* Use CSS variable for bullet color */
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-size: 16px;
+    transition: background-color 0.2s ease-in-out;
+}
+
+/* Hover effect */
+.nav-list li a:hover {
+     font-weight: bold;
+}
+
+/* Menu toggle button */
+.menu-toggle {
+    display: none;
+    font-size: 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+/* Media Query for Smaller Screens */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block; /* Show the toggle button */
+    }
+
+    .nav-list {
+        display: none; /* Hide menu by default */
+        flex-direction: column; /* Stack nav items vertically */
+        gap: 10px;
+        width: 250px; /* Limit dropdown width */
+        background: var(--card-color, white);
+        position: absolute;
+        top: 30px; /* Position below navbar */
+        right: 10px; /* Align dropdown to the right */
+        padding: 20px; /* Add padding around the dropdown */
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-list.active {
+        display: flex; /* Show menu when active */
+    }
+
+    .nav-list li a {
+        text-align: left; /* Align text to the left inside dropdown */
+        font-size: 14px;
+        padding: 8px 12px; /* Add padding for better readability */
+    }
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap; /* Ensures responsiveness by wrapping content on smaller screens */
+    justify-content: center;
+    align-items: center;
+    max-width: 1200px; /* Limit the container's width for better layout */
+    padding: 20px;
+    gap: 20px; /* Adds space between the text and image */
+}
+/* Text Container */
+.text-container {
+    /* width: 40%; /* Adjust width as needed */ 
+    /* margin-left: 10%;*/ 
+    flex: 1; 
+    min-width: 300px; 
+    max-width: 600px; 
+    text-align: left;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+/* Image Container */
+.image-container {
+    width: 300px; /* Set the width of the square */
+    height: 300px; /* Set the height of the square */
+    overflow: hidden; /* Ensures the image doesn't overflow */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px; /* Optional: makes the square corners rounded */
+}
+
+/* Image Styling */
+.image-container img {
+    width: 100%; /* Scale image to fit the width */
+    height: 100%; /* Scale image to fit the height */
+    object-fit: cover; /* Ensures the image fills the square and maintains aspect ratio */
+}
+
+/* Custom List Styling */
+.custom-list {
+    list-style: none; /* Removes default bullet points */
+    padding: 0;
+}
+
+.custom-list li {
+    position: relative;
+    margin: 10px 0;
+    padding-left: 25px; /* Creates space for the custom bullet */
+    font-size: 18px;
+    color: #555;
+}
+
+/* Custom Bullet */
+.custom-list li::before {
+    content: "•"; 
+    position: absolute;
+    left: 0;
+    font-size: 24px; 
+    color: var(--bullet-color, black); /* Use CSS variable for bullet color */
+}
+
+.centered-container {
+    text-align: center; /* Centers text within the container */
+}
+
+
+
+/* Projects Section */
+.projects {
+    text-align: center;
+    padding: 50px;
+    max-width: 1200px; /* Limit the container's width for better layout */
+
+}
+
+.projects h1 {
+    margin-bottom: 30px;
+    font-size: 2rem;
+}
+
+/* Project Container */
+.project-container {
+    display: flex;
+    flex-direction: column; /* Stack the items vertically */
+    align-items: center; /* Center items horizontally */
+    gap: 20px; /* Add space between the cards */
+}
+
+/* Individual Project Card */
+.project-card {
+    width: 90%; /* Make it responsive by setting it to 90% of the screen width */
+    max-width: 400px; /* Limit the maximum width */
+    background: var(--card-color, white); /* Use CSS variable for bullet color */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.project-card img {
+    margin: 5%;
+    width: 90%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.project-card .project-content {
+    padding: 20px;
+}
+
+.project-card h2 {
+    font-size: 1.5rem;
+}
+
+.project-card p {
+    font-size: 1rem;
+    color: #555;
+}
+
+/* Hover Effect */
+.project-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+
+/* Initial state - invisible */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px); /* Optional: slide up effect */
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+/* Final state - visible */
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Styling for the title */
+.typing {
+    font-size: 2rem;
+    font-weight: bold;
+    white-space: nowrap; /* Prevent text wrapping */
+    overflow: hidden; /* Hide overflowing text during animation */
+    border-right: 2px solid black; /* Cursor effect */
+    display: inline-block;
+    animation: blink 0.5s step-end infinite; /* Blinking cursor */
+}
+
+/* Blinking cursor animation */
+@keyframes blink {
+    50% {
+        border-color: transparent;
+    }
+}
+
+
+/* General styles */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  transition: background-color 0.3s, color 0.3s;
+  background-color: #ffffff; /* Default to day mode */
+  color: #000000;
+}
+
+nav {
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px;
+  background-color: #f0f0f0;
+}
+
+.toggle-container {
+  position: relative;
+  /* display: inline-block; */
+  width: 50px;
+  height: 25px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.toggle-input {
+  display: none;
+}
+
+.toggle-label {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: #ccc;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.toggle-label::before {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 21px;
+  height: 21px;
+  background-color: #fff;
+  border-radius: 50%;
+  transition: transform 0.3s;
+}
+
+.toggle-input:checked + .toggle-label {
+  background-color: #444;
+}
+
+.toggle-input:checked + .toggle-label::before {
+  transform: translateX(25px);
+}
+
+.toggle-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 24px;
+  width: 24px;
+  color: #000; /* Default to black */
+  transition: color 0.3s;
+margin-left:30px;
+}
+
+/* Default (Light Mode) */
+:root {
+  --background-color: #ffffff;
+  --text-color: #000000;
+  --icon-color: #000000;
+  --navbar-background: #ffffff;
+  --navbar-text-color: #000000;
+}
+
+/* Dark Mode */
+[data-theme="dark"] {
+  --background-color: #121212;
+  --text-color: #ffffff;
+  --icon-color: #ffffff;
+  --navbar-background: #000000;
+  --navbar-text-color: #ffffff;
+}
+
+/* Apply colors dynamically */
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.navbar {
+  background-color: var(--navbar-background);
+  color: var(--navbar-text-color);
+}
+
+#theme-icon {
+  font-size: 24px;
+  color: var(--icon-color);
+  transition: color 0.3s;
+}
